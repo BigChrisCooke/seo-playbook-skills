@@ -63,6 +63,16 @@ Clone this repository and copy the **whole skill directory**, including `scripts
 
 ## Use
 
+### Verify a public playbook installation
+
+For playbook release **2026-09-19.1**, download [check-skills.py](tools/check-skills.py) or use the copy in this repository. From the audit project run `python check-skills.py --project . --standalone` (omit `--standalone` when using the playbook's optional orchestrator). The standalone runbook additionally needs upstream `seo-audit`; both routes need upstream `programmatic-seo`, `site-architecture`, and `competitors`.
+
+The read-only checker verifies every file in our five packages against the checked publication, checks upstream entrypoints and referenced resources, and runs our Python helpers with `--help`. It reports paths, hashes, missing files, and changed copies. Exit 0 means files verified; exit 1 means a dependency needs attention. It does not prove that an existing agent session has refreshed registered instructions. Start a fresh session after installing or updating, then confirm the selected skill paths. For an isolated installation, `--skills-dir PATH` checks only that explicitly chosen skills directory.
+
+The old `edit-conversion-safe-blogs` name is now `remove-ai-slop-without-removing-ctas-and-good-marketing-copy`. The runbook no longer requires a private `schema-detector` patch. Optional `seo-sxo` requires its upstream shared script bundle and runtime; copying only its skill folder is insufficient. The checker can detect missing SXO files with `--with-sxo`, but dependency imports and browser execution still need testing before running SXO.
+
+### Run the skills
+
 Ask your agent to use the skill by name. For example:
 
 - “Use remove-ai-slop-without-removing-ctas-and-good-marketing-copy on this draft. Preserve the trial CTA and product links.”
