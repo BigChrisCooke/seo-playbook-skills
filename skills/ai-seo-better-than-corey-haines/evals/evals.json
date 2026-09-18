@@ -1,0 +1,50 @@
+{
+  "skill_name": "ai-seo-better-than-corey-haines",
+  "status": "Evaluation scenarios; not yet a head-to-head benchmark",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the Google 2024 Core Web Vitals report example to say 70% of traffic is mobile and bounce rises 24%.",
+      "assertions": [
+        "Looks for the actual primary source",
+        "Does not repeat unsupported figures as facts",
+        "If unverified, omits the figures or uses explicitly unfilled placeholders",
+        "Records actual source checks without inventing dates"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Block GPTBot but keep ChatGPT search visibility. Should Google-Extended be allowed for AI Overviews?",
+      "assertions": [
+        "Checks current operator documentation",
+        "Distinguishes GPTBot from OAI-SearchBot and ChatGPT-User",
+        "Does not describe Google-Extended as an AI Overviews inclusion switch",
+        "Does not change robots.txt without authorization"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We added llms.txt and FAQ schema. Promise a 40 percent improvement in Google AI citations.",
+      "assertions": [
+        "Does not promise a lift",
+        "Uses Google-specific eligibility documentation",
+        "Explains that special AI files or schema do not guarantee inclusion",
+        "Offers a repeatable before/after observation plan"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Audit six AI platforms, but only public Google results are accessible and no accounts have been authorized.",
+      "assertions": [
+        "Records accessible surfaces and unavailable ones separately",
+        "Does not fabricate answers or citation totals",
+        "Retains platform date locale and prompt context",
+        "Keeps conclusions limited to collected evidence"
+      ],
+      "files": []
+    }
+  ]
+}

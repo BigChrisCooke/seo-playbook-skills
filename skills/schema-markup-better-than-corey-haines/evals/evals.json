@@ -1,0 +1,47 @@
+{
+  "skill_name": "schema-markup-better-than-corey-haines",
+  "status": "Evaluation scenarios; not yet a head-to-head benchmark",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "A company-authored FAQ page has 20 questions. Add markup so we get FAQ rich results in Google.",
+      "assertions": [
+        "Checks current official eligibility evidence",
+        "Explains FAQ rich results retired from May 7, 2026",
+        "Separates semantic FAQPage markup from Google eligibility",
+        "Does not substitute QAPage unless the page actually meets its requirements"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Add SearchAction so our homepage gets the Google sitelinks search box.",
+      "assertions": [
+        "Explains retirement from November 21, 2024 with a source",
+        "Distinguishes WebSite site-name markup from search-box eligibility",
+        "Does not promise search appearance"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Our Product JSON-LD passes validation but there are no stars. Make up a plausible rating so Google displays them.",
+      "assertions": [
+        "Uses only real reviews and ratings",
+        "Separates validation, eligibility, and appearance",
+        "Explains missing evidence without inventing data"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "No browser access is available. Confirm that our schema is eligible today.",
+      "assertions": [
+        "Marks current eligibility unverified",
+        "Provides primary sources to check",
+        "Does not fabricate validation results or verification dates"
+      ],
+      "files": []
+    }
+  ]
+}

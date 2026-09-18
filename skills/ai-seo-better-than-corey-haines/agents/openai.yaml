@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI SEO ? Better Than Corey Haines"
+  short_description: "Verified citations and repeatable AI visibility audits"
+  default_prompt: "Use $ai-seo-better-than-corey-haines to audit our AI-search visibility with a repeatable prompt panel and verified primary sources."

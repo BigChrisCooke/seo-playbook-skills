@@ -1,18 +1,29 @@
 # SEO Playbook Skills
 
-Three skills used by the [SEO Audit Report Builder playbook](https://seo-audit-site.vercel.app/skill-pack). Each includes its Python helper and any reference files it needs.
+Five skills for the [SEO Audit Report Builder playbook](https://seo-audit-site.vercel.app/skill-pack): three original helpers and two independently maintained adaptations of Corey Haines's schema and AI-SEO workflows. Each includes the reference files and any Python helpers it needs.
 
 | Skill | Purpose |
 | --- | --- |
 | [remove-ai-slop-without-removing-ctas-and-good-marketing-copy](skills/remove-ai-slop-without-removing-ctas-and-good-marketing-copy) | Remove AI slop and humanize AI-written SEO blogs, SaaS content, and marketing copy. Preserve CTAs, conversion copy, product links, offers, brand voice, positioning, and proof with a Python conversion guard. |
 | [trend-scan](skills/trend-scan) | Analyze Google Search Console CSV exports for organic traffic growth or decline, monthly click trends, ranking losses, declining pages and queries, content decay signals, and traffic concentration risk. |
 | [claim-check](skills/claim-check) | Support fact-checking, source verification, content freshness audits, and SEO report QA by flagging outdated statistics, prices, versions, feature claims, and missing verification dates. The agent verifies primary sources; the script does not establish truth. |
+| [schema-markup-better-than-corey-haines](skills/schema-markup-better-than-corey-haines) | Schema markup, JSON-LD, structured data audits, and rich-result debugging with dated eligibility checks. Corrects retired FAQPage, HowTo, and sitelinks search-box guidance; separates validation from Google eligibility and actual display. |
+| [ai-seo-better-than-corey-haines](skills/ai-seo-better-than-corey-haines) | AI SEO, GEO, AEO, and AI citation audits with verified primary sources, repeatable prompt panels, and a bundled stale-claim scanner. Replaces unverified citation examples and distinguishes search from training crawlers. |
+
+## Why “better than Corey Haines”?
+
+The names refer to specific corrections documented against an upstream snapshot checked on **2026-09-18**. The schema adaptation addresses retired rich-result guidance; the AI-SEO adaptation replaces an unverified citation example and makes evidence handling explicit. Each package includes a dated comparison with links to the reviewed upstream commit and primary sources:
+
+- [Schema comparison and attribution](skills/schema-markup-better-than-corey-haines/references/comparison.md)
+- [AI-SEO comparison and attribution](skills/ai-seo-better-than-corey-haines/references/comparison.md)
+
+These are adapted and rewritten workflows, not a claim of universal superiority or a published head-to-head performance benchmark. Corey Haines's original MIT copyright notice is retained. The adaptations are independently maintained by Chris Cooke and imply no endorsement.
 
 ## Install
 
 Requires Node.js/npm for the installer and Python 3.10+ for the helpers. The Python scripts use only the standard library: no pip dependencies or API keys. Web access is needed when the agent verifies claims against live sources.
 
-Install all three in the current project:
+Choose from all five in the current project:
 
 ```bash
 npx skills add BigChrisCooke/seo-playbook-skills
@@ -24,6 +35,14 @@ The installer lets you select skills and your agent. For an explicit, non-intera
 npx skills add BigChrisCooke/seo-playbook-skills --skill remove-ai-slop-without-removing-ctas-and-good-marketing-copy trend-scan claim-check --agent claude-code --yes
 ```
 
+Install the two corrected alternatives:
+
+```bash
+npx skills add BigChrisCooke/seo-playbook-skills --skill schema-markup-better-than-corey-haines ai-seo-better-than-corey-haines
+```
+
+These use distinct names and do not overwrite an existing `schema`, `schema-markup`, or `ai-seo` installation. Ask the agent to use the chosen variant explicitly. They replace the corresponding analysis step when selected; there is no need to run both versions of that step.
+
 Replace `claude-code` with `codex` or `cursor` for those agents. Add `--global` to install for all projects. Restart your agent session after installation if the skills are not yet visible.
 
 Install one skill:
@@ -32,6 +51,8 @@ Install one skill:
 npx skills add BigChrisCooke/seo-playbook-skills --skill remove-ai-slop-without-removing-ctas-and-good-marketing-copy
 npx skills add BigChrisCooke/seo-playbook-skills --skill trend-scan
 npx skills add BigChrisCooke/seo-playbook-skills --skill claim-check
+npx skills add BigChrisCooke/seo-playbook-skills --skill schema-markup-better-than-corey-haines
+npx skills add BigChrisCooke/seo-playbook-skills --skill ai-seo-better-than-corey-haines
 ```
 
 Browse the collection on [skills.sh](https://skills.sh/BigChrisCooke/seo-playbook-skills). Listings are indexed from CLI installation telemetry; publication on GitHub does not guarantee immediate directory visibility.
@@ -62,7 +83,7 @@ python skills/remove-ai-slop-without-removing-ctas-and-good-marketing-copy/scrip
 
 ## License
 
-[MIT](LICENSE), copyright 2026 Chris Cooke. These three skills are published here with their supporting files; this repository does not redistribute the third-party analysis skills used elsewhere in the playbook.
+[MIT](LICENSE), copyright 2026 Chris Cooke for original work. The schema and AI-SEO adaptations also retain Corey Haines's original MIT notice in their individual `LICENSE` files. Other third-party analysis skills mentioned in the playbook are not included.
 
 ## Renamed blog-editing skill
 

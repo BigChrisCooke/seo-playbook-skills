@@ -1,0 +1,4 @@
+interface:
+  display_name: "Schema Markup ? Better Than Corey Haines"
+  short_description: "Current schema eligibility, sources, and validation"
+  default_prompt: "Use $schema-markup-better-than-corey-haines to review this page and recommend only currently eligible, evidence-backed structured data."
