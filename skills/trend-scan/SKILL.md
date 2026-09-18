@@ -1,14 +1,6 @@
 ---
 name: trend-scan
-description: >
-  Work out whether a site's search traffic is going up or down, what dropped,
-  and how much of the traffic rides on a single page. Reads the CSV files you
-  export from Google Search Console or GA4. Use when the user says "trend
-  scan", "traffic decline", "is traffic falling", "did we lose rankings",
-  "why did traffic drop", "month over month", "year over year", "anomaly", or
-  at the start of writing up any SEO audit. Run this BEFORE reading anything
-  else, because a site that is losing traffic needs a different report from a
-  site that is growing.
+description: Analyze SEO traffic trends and diagnose organic search traffic drops from Google Search Console (GSC) CSV exports. Check monthly clicks, traffic growth or decline, month-over-month and year-over-year comparisons, ranking losses, declining pages and search queries, missing keywords, and single-page traffic concentration. Use for SEO audits, traffic decline analysis, search performance reviews, content decay investigations, and anomaly triage before writing an audit report. The Python helper flags changes for investigation; it does not prove their cause or connect directly to analytics accounts.
 metadata:
   last_verified: 2026-09-04
   requires: python3 (nothing to install, no logins, no API keys)

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Remove AI slop without removing CTAs and good marketing copy"
+  short_description: "Remove AI slop; preserve CTAs and persuasive marketing copy"
+  default_prompt: "Use $remove-ai-slop-without-removing-ctas-and-good-marketing-copy to edit this draft while preserving its CTA, product links, positioning, and capability claims."

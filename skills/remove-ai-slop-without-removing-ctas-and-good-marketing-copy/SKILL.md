@@ -1,9 +1,9 @@
 ---
-name: edit-conversion-safe-blogs
-description: Edit marketing, product-led, SEO, and commercial blog drafts into sharper, more human writing without weakening their conversion purpose. Use for pre-publish blog editing, AI-slop removal, copy tightening, or rewrites where CTAs, product links, offers, positioning, proof, and capability claims must survive unchanged unless the user explicitly approves a strategic change.
+name: remove-ai-slop-without-removing-ctas-and-good-marketing-copy
+description: Remove AI slop and humanize AI-written marketing copy without removing CTAs or weakening persuasive sales copy. Edit SEO blogs, SaaS content, product-led articles, and commercial drafts to remove robotic language, filler, buzzwords, repetition, and generic AI phrasing while preserving brand voice, calls to action, conversion copy, product links, offers, positioning, proof points, and capability claims. Use for AI content editing, AI-slop removal, blog editing, copy polishing, and conversion-safe rewrites; includes a Python conversion guard to verify protected content and links. Does not bypass AI detectors or rewrite marketing strategy.
 ---
 
-# Edit conversion-safe blogs
+# Remove AI slop without removing CTAs and good marketing copy
 
 Improve the prose while preserving the article's commercial job. Treat prose
 quality and conversion integrity as two separate gates.

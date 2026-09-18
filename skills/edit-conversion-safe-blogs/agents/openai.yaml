@@ -1,4 +1,0 @@
-interface:
-  display_name: "Conversion-Safe Blog Editor"
-  short_description: "Humanise blogs without weakening the conversion goal"
-  default_prompt: "Use $edit-conversion-safe-blogs to edit this draft while preserving its CTA, product links, positioning, and capability claims."

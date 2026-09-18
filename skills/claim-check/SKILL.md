@@ -1,14 +1,6 @@
 ---
 name: claim-check
-description: >
-  Find the things you have written that might have gone out of date — prices,
-  limits, version numbers, features that got switched off, statistics, and
-  claims about what search engines show — then check each one and write down
-  when you checked. Use when the user says "claim check", "is this still
-  true", "check my sources", "out of date", "stale", "verify the stats",
-  "fact check this", "audit this doc", or before publishing anything with
-  numbers in it. Also worth running over someone else's skill files before
-  trusting them on client work.
+description: Find stale claims, outdated statistics, undated pricing, obsolete software versions, changed product limits, deprecated features, and unsupported search-engine claims in Markdown and text. Use for fact-checking workflows, source verification, content freshness audits, SEO report QA, research review, citation checks, and pre-publication editorial checks. The Python helper flags time-sensitive statements and missing or old verification dates; the agent then checks primary sources and records evidence. A clean scan is not proof of accuracy, and the script does not browse the web or determine whether claims are true.
 metadata:
   last_verified: 2026-09-04
   requires: python3 (nothing to install, no logins, no API keys)
