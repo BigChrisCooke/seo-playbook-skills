@@ -1,6 +1,6 @@
 # SEO Playbook Skills
 
-Five skills for the [SEO Audit Report Builder playbook](https://seo-audit-site.vercel.app/skill-pack): three original helpers and two independently maintained adaptations of Corey Haines's schema and AI-SEO workflows. Each includes the reference files and any Python helpers it needs.
+Six skills. Five support the [SEO Audit Report Builder playbook](https://seo-audit-site.vercel.app/skill-pack): three original helpers and two independently maintained adaptations of Corey Haines's schema and AI-SEO workflows. The sixth, `cro-research`, is an original conversion-research helper that stands alone. Each includes the reference files and any Python helpers it needs.
 
 | Skill | Purpose |
 | --- | --- |
@@ -9,6 +9,7 @@ Five skills for the [SEO Audit Report Builder playbook](https://seo-audit-site.v
 | [claim-check](skills/claim-check) | Support fact-checking, source verification, content freshness audits, and SEO report QA by flagging outdated statistics, prices, versions, feature claims, and missing verification dates. The agent verifies primary sources; the script does not establish truth. |
 | [schema-markup-better-than-corey-haines](skills/schema-markup-better-than-corey-haines) | Schema markup, JSON-LD, structured data audits, and rich-result debugging with dated eligibility checks. Corrects retired FAQPage, HowTo, and sitelinks search-box guidance; separates validation from Google eligibility and actual display. |
 | [ai-seo-better-than-corey-haines](skills/ai-seo-better-than-corey-haines) | AI SEO, GEO, AEO, and AI citation audits with verified primary sources, repeatable prompt panels, and a bundled stale-claim scanner. Replaces unverified citation examples and distinguishes search from training crawlers. |
+| [cro-research](skills/cro-research) | Conversion rate optimization (CRO) research from GA4 CSV exports: find the landing pages, devices, and traffic sources that convert worse than the rest, locate funnel drop-off, check whether there is enough traffic to A/B test, and verify a finished split test, including a sample ratio mismatch (SRM) check. The script says where conversions are lost; the agent establishes why. |
 
 ## Why “better than Corey Haines”?
 
@@ -23,7 +24,7 @@ These are adapted and rewritten workflows, not a claim of universal superiority 
 
 Requires Node.js/npm for the installer and Python 3.10+ for the helpers. The Python scripts use only the standard library: no pip dependencies or API keys. Web access is needed when the agent verifies claims against live sources.
 
-Choose from all five in the current project:
+Choose from all six in the current project:
 
 ```bash
 npx skills add BigChrisCooke/seo-playbook-skills
@@ -53,6 +54,7 @@ npx skills add BigChrisCooke/seo-playbook-skills --skill trend-scan
 npx skills add BigChrisCooke/seo-playbook-skills --skill claim-check
 npx skills add BigChrisCooke/seo-playbook-skills --skill schema-markup-better-than-corey-haines
 npx skills add BigChrisCooke/seo-playbook-skills --skill ai-seo-better-than-corey-haines
+npx skills add BigChrisCooke/seo-playbook-skills --skill cro-research
 ```
 
 Browse the collection on [skills.sh](https://skills.sh/BigChrisCooke/seo-playbook-skills). Listings are indexed from CLI installation telemetry; publication on GitHub does not guarantee immediate directory visibility.
@@ -67,7 +69,7 @@ Clone this repository and copy the **whole skill directory**, including `scripts
 
 For playbook release **2026-09-22.1**, download [check-skills.py](tools/check-skills.py) or use the copy in this repository. From the audit project run `python check-skills.py --project . --standalone` (omit `--standalone` when using the playbook's optional orchestrator). The standalone runbook additionally needs upstream `seo-audit`; both routes need upstream `programmatic-seo`, `site-architecture`, and `competitors`.
 
-The read-only checker verifies every file in our five packages against the checked publication, checks upstream entrypoints and referenced resources, and runs our Python helpers with `--help`. It reports paths, hashes, missing files, and changed copies. Exit 0 means files verified; exit 1 means a dependency needs attention. It does not prove that an existing agent session has refreshed registered instructions. Start a fresh session after installing or updating, then confirm the selected skill paths. For an isolated installation, `--skills-dir PATH` checks only that explicitly chosen skills directory.
+The read-only checker verifies every file in the five playbook packages against the checked publication (`cro-research` is not part of the playbook and is not checked), checks upstream entrypoints and referenced resources, and runs our Python helpers with `--help`. It reports paths, hashes, missing files, and changed copies. Exit 0 means files verified; exit 1 means a dependency needs attention. It does not prove that an existing agent session has refreshed registered instructions. Start a fresh session after installing or updating, then confirm the selected skill paths. For an isolated installation, `--skills-dir PATH` checks only that explicitly chosen skills directory.
 
 The old `edit-conversion-safe-blogs` name is now `remove-ai-slop-without-removing-ctas-and-good-marketing-copy`. The runbook no longer requires a private `schema-detector` patch. SXO and drift require the complete upstream repository, including root `requirements.txt`, shared scripts, and managed runtime. Run `python "<bundle>/scripts/runtime.py" setup`, then `doctor --json`; require both `ready` and `browser_ready`. Add `--with-sxo` and/or `--with-drift` plus `--seo-bundle "<bundle>"` to the checker. It checks the selected skill, required files, doctor readiness, and script startup in the managed environment. Separately verify a rendered fetch and a persisted baseline/compare; file checks alone cannot prove either. Use `python "<bundle>/scripts/runtime.py" run <script.py> ...` for subsequent commands. Run the offline regression suite with `python -m unittest discover -s tests -v`.
 
@@ -78,6 +80,7 @@ Ask your agent to use the skill by name. For example:
 - “Use remove-ai-slop-without-removing-ctas-and-good-marketing-copy on this draft. Preserve the trial CTA and product links.”
 - “Use trend-scan on these Search Console exports before writing the audit.”
 - “Use claim-check on this report, verify flagged claims, and date each check.”
+- “Use cro-research on this GA4 landing page export before suggesting any change to the page.”
 
 The blog editor includes a prose rubric and final evaluation, so it works without the optional `no-ai-slop` skill. During an audit, edit copies under the audit-data folder and treat proposed edits as evidence until the user authorizes publication.
 
@@ -87,9 +90,11 @@ Run the helpers directly from the repository root:
 python skills/trend-scan/scripts/trend_scan.py --series Dates.csv
 python skills/claim-check/scripts/claim_check.py report.md
 python skills/remove-ai-slop-without-removing-ctas-and-good-marketing-copy/scripts/conversion_guard.py --help
+python skills/cro-research/scripts/cro_research.py --pages landing-pages.csv
+python skills/cro-research/scripts/cro_research.py --test 10210/512 9987/561
 ```
 
-`trend-scan` and `claim-check` return exit code **1 when they find issues**, **0 when no issues are flagged**, and **2 for invalid input or usage**. An issue flag is not a script crash. See each skill's instructions for inputs, limitations, and interpretation.
+`trend-scan`, `claim-check`, and `cro-research` return exit code **1 when they find issues**, **0 when no issues are flagged**, and **2 for invalid input or usage**. An issue flag is not a script crash. See each skill's instructions for inputs, limitations, and interpretation.
 
 ## License
 

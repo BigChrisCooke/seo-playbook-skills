@@ -1,0 +1,4 @@
+interface:
+  display_name: "CRO Research"
+  short_description: "Find conversion leaks; check A/B test traffic and splits"
+  default_prompt: "Use $cro-research on these GA4 exports to find where the site loses people before recommending any change."
